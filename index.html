@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mess-Age</title>
+    <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      position: relative;
+      overflow-y: none;
+      cursor: none;
+    }
+
+    .logo {
+      position: absolute;
+      height: 180px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    .circle {
+      position: absolute;
+      top: 40%;
+      left: 37.5%;
+      width: 30px;
+      height: 30px;
+      background-color: red;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-family: Helvetica;
+      font-size: 11pt;
+      transform: scale(0);
+      animation: grow 1s ease-in forwards;
+      transform-origin: center;
+      opacity: 0;
+      z-index: 2;
+    }
+
+    @media screen and (max-width: 1420px) {
+      .circle {
+        left: 37%;
+      }
+    }
+
+    @media screen and (max-width: 1350px) {
+      .circle {
+        left: 36.5%;
+      }
+    }
+
+    @media screen and (max-width: 1280px) {
+      .circle {
+        left: 36%;
+      }
+    }
+
+    @media screen and (max-width: 1210px) {
+      .circle {
+        left: 35.5%;
+      }
+    }
+
+    @media screen and (max-width: 1180px) {
+      .circle {
+        left: 35%;
+      }
+    }
+
+    @media screen and (max-width: 1110px) {
+      .circle {
+        left: 34%;
+      }
+    }
+
+    @media screen and (max-width: 1056px) {
+      .circle {
+        left: 33.5%;
+      }
+    }
+
+    @media screen and (max-width: 1038px) {
+      .circle {
+        left: 33%;
+      }
+    }
+
+    @media screen and (max-width: 972px) {
+      .circle {
+        left: 31.5%;
+      }
+    }
+    
+    @media screen and (max-width: 894px) {
+      .circle {
+        left: 30%;
+      }
+    }
+
+    @media screen and (max-width: 866px) {
+      .circle {
+        left: 29%;
+      }
+    }
+
+    @media screen and (max-width: 775px) {
+      .circle {
+        left: 25.5%;
+      }
+    }
+
+    @media screen and (max-width: 700px) {
+      .circle {
+        left: 25%;
+      }
+    }
+
+    @media screen and (max-width: 655px) {
+      .circle {
+        left: 21.5%;
+      }
+    }
+
+    @media screen and (max-width: 500px) {
+      .logo{
+        height: 110px;
+      }
+
+      .circle {
+        top: 43.7%;
+        left: 27.6%;
+        width: 20px;
+        height: 20px;
+        font-size: 7pt;
+      }
+    }
+
+    .circle a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .circle.show {
+      opacity: 1;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .circle.expand {
+      width: 100vw;
+      height: 100vh;
+      top: 0;
+      left: 0;
+      border-radius: 0;
+      animation: none;
+      background-color: red;
+      color: white;
+      font-size: 64px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: default;
+    }
+
+    @keyframes grow {
+      0% {
+        transform: scale(0);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .custom-cursor {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background-image: url('img/finger.png');
+      background-size: cover;
+      pointer-events: none;
+      z-index: 3;
+      bottom: -350px;
+      right: 0;
+    }
+
+
+    </style>
+  </head>
+  <body>
+    <img src="img/logo.png" alt="Logo" class="logo">
+    <div class="circle"><a href="index2.html">1</a></div>
+    <script>
+      const circle = document.querySelector('.circle');
+      const logo = document.querySelector('.logo');
+      let clicked = false;
+
+      setTimeout(() => {
+        circle.classList.add('show');
+      }, 500);
+
+      circle.addEventListener('click', () => {
+  if (!clicked) {
+    circle.classList.add('expand');
+    clicked = true;
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 2000);
+  }
+});
+
+
+      //cursor
+      const cursor = document.createElement('div');
+      cursor.classList.add('custom-cursor');
+      document.body.appendChild(cursor);
+
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.pageX - 48 + 'px';
+        cursor.style.top = e.pageY - 10 + 'px';
+      });
+
+    </script>
+  </body>
+</html>
