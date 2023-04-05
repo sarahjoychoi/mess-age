@@ -41,6 +41,8 @@
       transform-origin: center;
       opacity: 0;
       z-index: 2;
+      cursor: none;
+      border: 15px transparent;
     }
 
     @media screen and (max-width: 1420px) {
@@ -193,7 +195,7 @@
   </head>
   <body>
     <img src="img/logo.png" alt="Logo" class="logo">
-    <div class="circle"><a href="index2.html">1</a></div>
+    <a href="index2.html"><div class="circle">1</div></a>
     <script>
       const circle = document.querySelector('.circle');
       const logo = document.querySelector('.logo');
